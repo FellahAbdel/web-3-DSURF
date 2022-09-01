@@ -46389,7 +46389,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const init = async () => {
-    react_dom__WEBPACK_IMPORTED_MODULE_0__.render(react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById("root"));
+    //   ReactDOM.render(<App />, document.getElementById("root"));
+    const authClient = authClient.create();
+    authClient.login({
+        identityProvider: "https://identity/ic0.app/#authorize",
+        onSuccess: () => {
+            react_dom__WEBPACK_IMPORTED_MODULE_0__.render(react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById("root"));
+        },
+    });
 };
 init();
 
